@@ -7,9 +7,35 @@
     <script src="jquery.js"></script>
     <script src="client.js"></script>
     <link rel="stylesheet" href="styles.css">
-    <title>Document</title>
+    <title>Salary Calculator</title>
 </head>
 <body>
+    <head>
+        <h1>Salary Calculator</h1>
+    </head>
+    <div id="container">
+        <div id="employeeInput">
+            <h2>Add Employee</h2>
+            <input type="text" id="firstNameInput" placeholder="First Name">
+            <input type="text" id="lastNameInput" placeholder="Last Name">
+            <input type="number" id="idInput" placeholder="ID">
+            <input type="text" id="titleInput" placeholder="Title">
+            <input type="number" id="salaryInput" placeholder="Annual Salary"></br>
+            <button id="submit">Submit</button>
+        </div>
+       
+        <div id="employeeTable" >
+            <h2>Employees</h2>
+            <ul id="employeeOut">
+
+            </ul>
+
+        </div>
+        <div id="totalMonthOut">
+            <h2>Total Monthly: $<span id="monthlyTotal"></span></h2>
+
+        </div>
+    </div>
     
 </body>
 </html>
