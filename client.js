@@ -8,12 +8,13 @@ function readyNow(){
     createEmployee();
 });
    $("#employeeOut").on('click', "#deleteBtn", function(){
-    $(this).parent().remove();
+    $(this).parent().parent().remove();
     let deleteItem = employee;
     employees.splice($.inArray(deleteItem, employees),1);
     calcMonthly();
    });
    calcMonthly();
+   displayEmployee();
 }
 
 function createEmployee(){
@@ -43,28 +44,43 @@ function createEmployee(){
 function displayEmployee(){
     let empEl = $("#employeeOut");
     empEl.empty();
+    empEl.append(`<tr id="tableHead">
+    <td>First Name</td>
+    <td>Last Name</td>
+    <td>ID</td>
+    <td>Title</td>
+    <td>Annual Salary</td>
+    <td></td>
+    </tr>
+    `);
     for(employee of employees){
-    empEl.append(`<li>First: ${employee.firstName} Last: ${employee.lastName} ID: ${employee.id} Title: ${employee.title} Annual Salary: ${employee.annualSalary} <button id="deleteBtn">Delete</button></li>`);
+    empEl.append(`<tr id="tableData">
+    <td>${employee.firstName}</td>
+    <td>${employee.lastName}</td>
+    <td>${employee.id}</td>
+    <td>${employee.title}</td>
+    <td>$ ${employee.annualSalary.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</td>
+    <td><button id="deleteBtn">Delete</button></td>
+    </tr>`);
     }//end for
 }
 
 function calcMonthly(){
     let totalMonthSpend = 0;
-
     for( employee of employees){
         
         totalMonthSpend += employee.annualSalary / 12; 
     }//end for
     if(totalMonthSpend >= 20000){
-        $("#totalMonthOut").addClass('alert');
+        $("#monthlyTotal").addClass('alert');
     }
     else{
-        $("#totalMonthOut").removeClass('alert');
+        $("#monthlyTotal").removeClass('alert');
 
     }
     let totalEl = $("#monthlyTotal");
     totalEl.empty();
-    totalEl.append(totalMonthSpend);
-    $("#monthlyTotal").html(totalMonthSpend);
+    totalEl.append(totalMonthSpend.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+    $("#monthlyTotal").html(totalMonthSpend.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ","));
 }
 

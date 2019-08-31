@@ -1,3 +1,83 @@
+html{
+}
+
+body{
+    background-color:#ecf0f1;
+    font-family: 'Lato' sans-serif;
+
+}
+
 .alert{
-    background-color: red;
+    background-color: rgb(255, 73, 73);
+}
+main{
+    margin-left: 25%;
+    width: 50%;
+    border: 1px solid black;
+    margin-right: 10%;
+    background-color: white;
+}
+
+table{
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+input{
+    border: 1px solid black;
+    margin: 5px;
+    height: 20px;
+    width: 145px;
+    padding-left: 5px;
+}
+
+header{
+    color:#ecf0f1;
+    background-color: gray;
+    padding: 20px 0;
+    text-align: center;
+}
+h2{
+    padding: 5px;
+}
+#tableHead{
+    background-color: rgb(168, 168, 168);
+}
+
+#tableData{
+    background-color:rgb(204, 204, 204);
+}
+
+tr, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    height: 30px;
+    width: 136px;
+}
+
+#submit{
+    height: 30px;
+    width:  100px;
+    border-radius: 5px;
+    background-color: lightgray;
+    margin-left: 85%;
+    margin-top: 10px;
+    border: 1px solid black;
+    font-weight: 900;
+}
+#totalMonthOut{
+    display: block;
+    border-collapse: collapse;
+    text-align: auto;
+}
+
+#deleteBtn{
+    height: 20px;
+    width: 80px;
+    font-weight: 600;
+}
+#total{
+    display: block;
+    text-align: right;
 }

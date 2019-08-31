@@ -7,13 +7,14 @@
     <script src="jquery.js"></script>
     <script src="client.js"></script>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
     <title>Salary Calculator</title>
 </head>
 <body>
-    <head>
+    <header>
         <h1>Salary Calculator</h1>
-    </head>
-    <div id="container">
+    </header>
+    <main>
         <div id="employeeInput">
             <h2>Add Employee</h2>
             <input type="text" id="firstNameInput" placeholder="First Name">
@@ -26,16 +27,14 @@
        
         <div id="employeeTable" >
             <h2>Employees</h2>
-            <ul id="employeeOut">
-
-            </ul>
-
+            <table id="employeeOut">
+                    <td></td>
+            </table>
         </div>
         <div id="totalMonthOut">
-            <h2>Total Monthly: $<span id="monthlyTotal"></span></h2>
-
+            <h2 id="total">Total Monthly: $<span id="monthlyTotal"></span></h2>
         </div>
-    </div>
+    </main>
     
 </body>
 </html>
