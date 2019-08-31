@@ -1,9 +1,9 @@
 html{
+    font-family: 'Lato', sans-serif;
 }
 
 body{
     background-color:#ecf0f1;
-    font-family: 'Lato' sans-serif;
 
 }
 
@@ -52,7 +52,7 @@ h2{
 tr, td{
     border: 1px solid black;
     border-collapse: collapse;
-    height: 30px;
+    height: 35px;
     width: 136px;
 }
 
@@ -73,9 +73,10 @@ tr, td{
 }
 
 #deleteBtn{
-    height: 20px;
+    height: 25px;
     width: 80px;
     font-weight: 600;
+    border-radius: 5px;
 }
 #total{
     display: block;
