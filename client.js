@@ -6,11 +6,10 @@ let employees = [];
 function readyNow(){
    $("#submit").on('click', function(){
     createEmployee();
-});
+}   );
    $("#employeeOut").on('click', "#deleteBtn", function(){
     $(this).parent().parent().remove();
-    let deleteItem = employee;
-    employees.splice($.inArray(deleteItem, employees),1);
+    employees.splice(employee,1);
     calcMonthly();
    });
    calcMonthly();
@@ -68,8 +67,7 @@ function displayEmployee(){
 function calcMonthly(){
     let totalMonthSpend = 0;
     for( employee of employees){
-        
-        totalMonthSpend += employee.annualSalary / 12; 
+        totalMonthSpend += Number(employee.annualSalary / 12); 
     }//end for
     if(totalMonthSpend >= 20000){
         $("#monthlyTotal").addClass('alert');
@@ -83,4 +81,3 @@ function calcMonthly(){
     totalEl.append(totalMonthSpend.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ","));
     $("#monthlyTotal").html(totalMonthSpend.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ","));
 }
-
