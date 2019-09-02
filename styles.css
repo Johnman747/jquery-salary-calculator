@@ -92,3 +92,11 @@ tr, td{
     display: block;
     text-align: right;
 }
+
+.error{
+    border: 2px solid red;
+}
+
+#alert{
+    color: red;
+}

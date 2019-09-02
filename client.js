@@ -5,12 +5,27 @@ let employees = [];
 
 function readyNow(){
    $("#submit").on('click', function(){
+       if($("#idInput").val() == '' || $("#salaryInput").val() == ''){
+           $("#idInput").addClass('error');
+           $("#salaryInput").addClass('error');
+           $("#alert").append(`<h4 id="alert">* Please fill required inputs</h4>`)
+            return;
+       } else{
+           $("#alert").empty();
+        $("#idInput").removeClass('error');
+        $("#salaryInput").removeClass('error');
     createEmployee();
-}   );
+       }
+    });
    $("#employeeOut").on('click', "#deleteBtn", function(){
-    $(this).parent().parent().remove();
-    employees.splice(employee,1);
+    let idData = $(this).parent().parent().data();
+    for(let i = 0; i<employees.length; i++){
+         if(idData.employeeid == employees[i].id){
+        employees.splice(i,1);
+        }
+    }
     calcMonthly();
+    displayEmployee();
    });
    calcMonthly();
    displayEmployee();
@@ -53,7 +68,7 @@ function displayEmployee(){
     </tr>
     `);
     for(employee of employees){
-    empEl.append(`<tr id="tableData">
+    empEl.append(`<tr data-employeeid="${employee.id}" id="tableData">
     <td>${employee.firstName}</td>
     <td>${employee.lastName}</td>
     <td>${employee.id}</td>
@@ -67,7 +82,7 @@ function displayEmployee(){
 function calcMonthly(){
     let totalMonthSpend = 0;
     for( employee of employees){
-        totalMonthSpend += Number(employee.annualSalary / 12); 
+        totalMonthSpend += employee.annualSalary / 12; 
     }//end for
     if(totalMonthSpend >= 20000){
         $("#monthlyTotal").addClass('alert');
